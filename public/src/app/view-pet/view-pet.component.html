@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="/pets" class="nav-link" routerLinkActive="active">
+          Home
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="card " style="width:90%;margin:auto;">
+  <h2>Detail about {{pet.name}}</h2>
+  <br>
+  <h4>Pet Type:{{pet.type }}</h4> 
+  <h4> Description: {{pet.description}} </h4>
+  <h4> Skills: </h4>
+   <h5 *ngFor="let skill of pet.skills">&nbsp;&nbsp;&nbsp; {{skill}} </h5>
+  <h4 id="likenum"> Likes:{{pet.likes}} </h4>
+            <!-- <button ng-model="button" ng-disabled="checked">Button</button> -->
+            <!-- {{showbutton |json}} -->
+            <button  (click)="likepet(pet.likes)" class="btn btn-primary" *ngIf="showbutton">Like this pet</button>&nbsp;
+            <button (click)="adoptpet()" class="btn btn-primary">Adopt this pet</button>
+         
+</div>

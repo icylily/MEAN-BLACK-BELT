@@ -1,0 +1,40 @@
+<h3 style="color :blueviolet">Know of a pet needing a home?</h3>
+<div class="card " style="width:90%;margin:auto;border:solid 1px rgb(146, 134, 134); padding:15px;">
+
+  <div class="card-body">
+
+    <form (submit)="createPet()">
+      <!-- <p> {{ newPet | json }} </p> -->
+      <div class="form-group">
+        <p *ngIf='errors.name' style='color:blue'>{{errors.name.message}}</p>
+        <label class="col-md-4">Pet Name</label>
+        <input type="text" class="form-control" name="newPet.name" [(ngModel)]="newPet.name" />
+      </div>
+      <div class="form-group">
+        <p *ngIf='errors.type' style='color:blue'>{{errors.type.message}}</p>
+        <label class="col-md-4">Pet Type</label>
+        <input type="text" class="form-control" name="newPet.type" [(ngModel)]="newPet.type" />
+      </div>
+      <div class="form-group">
+        <p *ngIf='errors.description' style='color:blue'>{{errors.description.message}}</p>
+        <label class="col-md-4">Description</label>
+        <input type="text" class="form-control" name="newPet.description" [(ngModel)]="newPet.description" />
+      </div>
+      <h4>Skills:</h4> 
+      <div class="form-group">
+        <!-- <p *ngIf='errors.name' style='color:blue'>{{errors.name.message}}</p> -->
+      &nbsp;&nbsp;<label class="col-md-4">Skill1</label>
+      &nbsp;&nbsp;  <input type="text" class="form-control" name="newPet.skills[0]" [(ngModel)]="newPet.skills[0]" />
+      &nbsp;&nbsp; <label class="col-md-4">Sill2</label>
+      &nbsp;&nbsp;  <input type="text" class="form-control" name="newPet.skills[1]" [(ngModel)]="newPet.skills[1]" />
+      &nbsp;&nbsp;  <label class="col-md-4">Sill2</label>
+      &nbsp;&nbsp;  <input type="text" class="form-control" name="newPet.skills[2]" [(ngModel)]="newPet.skills[2]" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Pet</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="backToHome()" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

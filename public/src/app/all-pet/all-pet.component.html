@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="/pets/new" class="nav-link" routerLinkActive="active">
+          Add a pet to the shelter
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="card " style="width:90%;margin:auto;border:solid 1px rgb(146, 134, 134); padding:15px;">
+  <h2>{{title}}</h2>
+  <div class="card-body">
+    <div class="row mt-5">
+      <table class="table table-striped  table-hover table-bordered " *ngIf="pets.length">
+        <tr class="text-center">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+        <tr *ngFor="let pet of pets">
+          <td>{{pet.name}}</td>
+          <td>{{pet.type}}</td>
+          <td>
+            <button [routerLink]="['/pets/'+pet._id]" class="btn btn-primary">Details</button>&nbsp;
+            <!-- <button (click)="deletepet(pet._id)" class="btn btn-primary">Delete</button> -->
+            <button [routerLink]="['/pets/'+pet._id+'/edit']" class="btn btn-primary">Edit</button>&nbsp;
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
